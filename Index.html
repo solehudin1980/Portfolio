@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Luji SOLEHUDINXI TJKT 4</title></title>
+<style>
+  /* Google Fonts: Poppins and Roboto */
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto&display=swap');
+
+  /* Reset & base */
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    font-family: 'Roboto', sans-serif;
+    background: #0f2027; /* fallback for gradient */
+    background: linear-gradient(135deg, #2c5364, #203a43, #0f2027);
+    color: #e0e0e0;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  a {
+    color: #0ef;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  a:hover {
+    color: #0ff;
+  }
+
+  header {
+    background: rgba(0,0,0,0.45);
+    padding: 2rem 1.5rem;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0,255,255,0.2);
+  }
+  header h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.8rem;
+    color: #00ffff;
+    margin-bottom: 0.3rem;
+    text-shadow: 0 0 6px #0ff, 0 0 10px #0ff;
+  }
+  header p {
+    font-size: 1.2rem;
+    color: #a0d8f7;
+    font-weight: 500;
+  }
+
+  main {
+    flex-grow: 1;
+    max-width: 960px;
+    margin: 2rem auto 4rem;
+    background: rgba(255,255,255,0.05);
+    border-radius: 15px;
+    box-shadow: 0 0 25px rgba(0,255,255,0.15);
+    padding: 2rem 3rem;
+  }
+
+  section {
+    margin-bottom: 3rem;
+  }
+
+  h2.section-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #00ffff;
+    border-bottom: 2px solid #0ff;
+    padding-bottom: 0.4rem;
+    width: fit-content;
+    text-shadow: 0 0 5px #0ff;
+  }
+
+  /* About */
+  .about p {
+    font-size: 1.15rem;
+    color: #c0e8ff;
+    max-width: 700px;
+    margin-top: 1rem;
+  }
+
+  /* Portfolio grid */
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+    gap: 1.5rem;
+  }
+  .project-card {
+    background: rgba(0,255,255,0.08);
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0,255,255,0.3);
+    overflow: hidden;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .project-card:hover {
+    transform: scale(1.04);
+    box-shadow: 0 0 25px rgba(0,255,255,0.6);
+  }
+  .project-img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    filter: brightness(0.9);
+  }
+  .project-info {
+    padding: 1rem 1.25rem 1.5rem;
+  }
+  .project-info h3 {
+    font-family: 'Poppins', sans-serif;
+    color: #00ffff;
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+  }
+  .project-info p {
+    font-size: 1rem;
+    color: #cde9ff;
+  }
+  .project-info a.btn-link {
+    display: inline-block;
+    margin-top: 0.75rem;
+    font-weight: 600;
+    color: #00ffff;
+    border: 1.5px solid #00ffff;
+    padding: 0.3rem 0.9rem;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  .project-info a.btn-link:hover {
+    background-color: #00ffffaa;
+    color: #003340;
+  }
+
+  /* Skills */
+  .skills-container {
+    max-width: 600px;
+  }
+  .skill {
+    margin-bottom: 1rem;
+  }
+  .skill-name {
+    font-weight: 600;
+    color: #00ffff;
+    margin-bottom: 0.3rem;
+  }
+  .skill-bar {
+    background: #033640;
+    border-radius: 12px;
+    height: 16px;
+    overflow: hidden;
+  }
+  .skill-level {
+    height: 100%;
+    background: #00ffff;
+    border-radius: 12px 0 0 12px;
+    transition: width 0.5s ease;
+  }
+
+  /* Contact */
+  .contact-info {
+    margin-top: 1rem;
+    color: #a0f0ff;
+  }
+
+  form {
+    margin-top: 1rem;
+    max-width: 600px;
+  }
+  form label {
+    display: block;
+    margin-bottom: 0.3rem;
+    font-weight: 600;
+    color: #00ffff;
+  }
+  form input, form textarea {
+    width: 100%;
+    padding: 0.6rem 0.8rem;
+    margin-bottom: 1rem;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    background: #02292f;
+    color: #e0f7ff;
+    resize: vertical;
+    transition: background-color 0.3s ease;
+  }
+  form input:focus, form textarea:focus {
+    background-color: #043e49;
+    outline: none;
+  }
+  form button {
+    padding: 0.7rem 1.5rem;
+    background-color: #00ffff;
+    color: #023033;
+    font-weight: 700;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 0 15px #00ffffaa;
+  }
+  form button:hover {
+    background-color: #00dddd;
+  }
+
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 1rem 0;
+    background-color: #02292f;
+    color: #0ef;
+    font-size: 0.9rem;
+    box-shadow: inset 0 1px 8px #00ffff44;
+  }
+
+  /* Responsive tweaks */
+  @media (max-width: 520px) {
+    main {
+      padding: 1.5rem 1.5rem;
+      margin: 1rem;
+    }
+    header h1 {
+      font-size: 2.1rem;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>LUJI SOLEHUDIN</h1>
+  <p>Passionate Web Developer & Designer</p>
+</header>
+
+<main>
+  <section class="about" id="about">
+    <h2 class="section-title">About Me</h2>
+    <p>Hello! I am a dedicated web developer with skills in building beautiful and functional websites. I love crafting projects that combine creativity and code.</p>
+  </section>
+
+  <section class="portfolio" id="portfolio">
+    <h2 class="section-title">Portfolio</h2>
+    <div class="portfolio-grid">
+      <article class="project-card">
+        <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=800&q=80" alt="Project 1 Screenshot" class="project-img" />
+        <div class="project-info">
+          <h3>Project One</h3>
+          <p>A responsive e-commerce website with sleek design and smooth user experience.</p>
+          <a href="#" class="btn-link" target="_blank" rel="noopener">View Project</a>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80" alt="Project 2 Screenshot" class="project-img" />
+        <div class="project-info">
+          <h3>Project Two</h3>
+          <p>An interactive portfolio platform showcasing creative work using modern JS frameworks.</p>
+          <a href="#" class="btn-link" target="_blank" rel="noopener">View Project</a>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <img src="https://images.unsplash.com/photo-1425321395722-b1dd54a97cf3?auto=format&fit=crop&w=800&q=80" alt="Project 3 Screenshot" class="project-img" />
+        <div class="project-info">
+          <h3>Project Three</h3>
+          <p>A blog platform with clean UI and SEO optimization, built with static site generator.</p>
+          <a href="#" class="btn-link" target="_blank" rel="noopener">View Project</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="skills" id="skills">
+    <h2 class="section-title">Skills</h2>
+    <div class="skills-container">
+      <div class="skill">
+        <div class="skill-name">HTML5</div>
+        <div class="skill-bar"><div class="skill-level" style="width: 90%;"></div></div>
+      </div>
+      <div class="skill">
+        <div class="skill-name">CSS3</div>
+        <div class="skill-bar"><div class="skill-level" style="width: 85%;"></div></div>
+      </div>
+      <div class="skill">
+        <div class="skill-name">JavaScript</div>
+        <div class="skill-bar"><div class="skill-level" style="width: 80%;"></div></div>
+      </div>
+      <div class="skill">
+        <div class="skill-name">React</div>
+        <div class="skill-bar"><div class="skill-level" style="width: 75%;"></div></div>
+      </div>
+      <div class="skill">
+        <div class="skill-name">Node.js</div>
+        <div class="skill-bar"><div class="skill-level" style="width: 70%;"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <h2 class="section-title">Contact Me</h2>
+    <p class="contact-info">Feel free to get in touch for freelance work, collaboration, or just to say hello!</p>
+    <form id="contactForm">
+      <label for="name">Name</label>
+      <input id="name" name="name" type="text" required placeholder="Your name" />
+      <label for="email">Email</label>
+      <input id="email" name="email" type="email" required placeholder="Your email" />
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="5" required placeholder="Write your message here"></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+    <p id="formStatus" style="margin-top:0.75rem;"></p>
+  </section>
+</main>
+
+<footer>
+  &copy; 2024 Your Name. All rights reserved.
+</footer>
+
+<script>
+  // Contact form submission handling (no backend, just UI feedback)
+  const form = document.getElementById('contactForm');
+  const status = document.getElementById('formStatus');
+
+  form.addEventListener('submit', function(event) {
+    event.preventDefault();
+    
+    const name = form.name.value.trim();
+    const email = form.email.value.trim();
+    const message = form.message.value.trim();
+
+    if (name && email && message) {
+      // Simple validation passed, show thank you message
+      status.style.color = '#0ff';
+      status.textContent = `Thank you, ${name}! Your message has been sent. (Not really, this is a demo.)`;
+      form.reset();
+    } else {
+      status.style.color = '#f00';
+      status.textContent = 'Please fill out all fields correctly.';
+    }
+  });
+</script>
+
+</body>
+</html>
